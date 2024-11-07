@@ -22,6 +22,12 @@ const userSchema = mongoose.Schema({
         enum: ["admin", "user"],
         default: "user"
     },
+    posts: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"Post"
+        }
+    ],
     refreshToken: {
         type: "String",
     }

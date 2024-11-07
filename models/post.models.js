@@ -21,13 +21,6 @@ postSchema = mongoose.Schema({
             required: true,
         }
     ],
-    tags: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Tag",
-            required: true,
-        }
-    ],
     status: {
         type: String,
         enum: ["draft", "published"],
@@ -35,8 +28,7 @@ postSchema = mongoose.Schema({
         required: true,
     },
     postImage: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "media",
+        type: String,
         required:true,
     },
     comments: [
@@ -45,7 +37,17 @@ postSchema = mongoose.Schema({
             ref: "Comment",
             required: true,
         }
-    ]
+    ],
+    likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        }
+    ],
+    views: {
+        type: Number,
+        default: 0,
+    }
 }, { timestamps: true })
 
 
